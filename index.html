@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Nature Explorer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Base Styles - Mobile First */
+        :root {
+            --primary: #2c6e49;
+            --secondary: #4c956c;
+            --accent: #fefee3;
+            --text: #333;
+            --background: #f9f7f3;
+            --card-bg: #ffffff;
+            --card-border: #ddd;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--background);
+            padding: 20px;
+            transition: var(--transition);
+        }
+        
+        header {
+            text-align: center;
+            padding: 20px 0;
+            margin-bottom: 30px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            margin-bottom: 10px;
+            font-size: 2.2rem;
+        }
+        
+        .intro {
+            max-width: 800px;
+            margin: 0 auto 30px;
+            padding: 20px;
+            background: var(--card-bg);
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .card-content {
+            padding: 15px;
+        }
+        
+        .card h3 {
+            margin-bottom: 8px;
+            color: var(--primary);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: var(--primary);
+            color: white;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        
+        .preference-info {
+            background: var(--accent);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid var(--secondary);
+        }
+        
+        /* Tablet View (min-width: 772px) */
+        @media screen and (min-width: 772px) {
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+            
+            .card {
+                border-radius: 50%;
+                overflow: hidden;
+            }
+            
+            .card:last-child {
+                grid-column: span 2;
+                border-radius: 8px;
+            }
+            
+            .card img {
+                height: 250px;
+            }
+        }
+        
+        /* Large Screen View (min-width: 992px) */
+        @media screen and (min-width: 992px) {
+            .gallery {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .card {
+                border-radius: 8px;
+            }
+            
+            .card:last-child {
+                grid-column: span 1;
+            }
+            
+            .card:nth-child(3n) {
+                grid-column: span 2;
+            }
+            
+            .card img {
+                height: 220px;
+            }
+        }
+        
+        /* Prefers Reduced Motion */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                scroll-behavior: auto !important;
+                transition: none !important;
+            }
+            
+            .card:hover {
+                transform: none;
+            }
+        }
+        
+        /* Dark Mode */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --text: #f0f0f0;
+                --background: #121212;
+                --card-bg: #1e1e1e;
+                --card-border: #333;
+            }
+            
+            .card {
+                background-color: #2a2a2a;
+                border-color: #444;
+            }
+            
+            .card h3 {
+                color: #ffd54f;
+            }
+            
+            .intro {
+                background-color: #2a2a2a;
+                color: #e0e0e0;
+            }
+            
+            .preference-info {
+                background-color: #333;
+                color: #ffd54f;
+                border-left-color: #555;
+            }
+        }
+        
+        /* Accessibility Focus Styles */
+        *:focus-visible {
+            outline: 3px solid var(--secondary);
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1><i class="fas fa-tree"></i> Nature Explorer</h1>
+        <p>Discover the beauty of our natural world</p>
+    </header>
+    
+    <main>
+        <div class="intro">
+            <h2>Welcome to Nature Explorer</h2>
+            <p>Explore stunning natural landscapes from around the globe. Our collection showcases diverse ecosystems, wildlife habitats, and breathtaking vistas. Each location tells a unique story of our planet's incredible biodiversity.</p>
+            <p>This responsive website adapts to your device and preferences. Try changing your system settings for dark mode or reduced motion to see how the experience transforms!</p>
+        </div>
+        
+        <div class="preference-info">
+            <i class="fas fa-info-circle"></i> This website adapts to your system preferences. Try enabling dark mode in your OS settings or toggling reduced motion to see the changes.
+        </div>
+        
+        <div class="gallery">
+            <!-- Card 1 -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=600&q=80" alt="Misty forest with tall trees and fog">
+                <div class="card-content">
+                    <h3>Ancient Woodlands</h3>
+                    <p>Explore centuries-old forests where sunlight filters through dense canopies, creating magical patterns on the forest floor.</p>
+                </div>
+            </div>
+            
+            <!-- Card 2 -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&w=600&q=80" alt="Mountain range with autumn-colored trees">
+                <div class="card-content">
+                    <h3>Mountain Peaks</h3>
+                    <p>Discover majestic mountain ranges with breathtaking vistas that change with the seasons from snow-capped to vibrant autumn colors.</p>
+                </div>
+            </div>
+            
+            <!-- Card 3 -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1475924156734-496f6cac6ec1?auto=format&fit=crop&w=600&q=80" alt="Sandy beach with turquoise water and palm trees">
+                <div class="card-content">
+                    <h3>Tropical Shores</h3>
+                    <p>Relax on pristine beaches with crystal-clear turquoise waters and swaying palm trees in paradise-like settings.</p>
+                </div>
+            </div>
+            
+            <!-- Card 4 -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1418065460487-3e41a6c84dc5?auto=format&fit=crop&w=600&q=80" alt="Lush green rainforest with waterfall">
+                <div class="card-content">
+                    <h3>Rainforest Waterfalls</h3>
+                    <p>Experience the power and beauty of cascading waterfalls hidden within lush, vibrant rainforest ecosystems.</p>
+                </div>
+            </div>
+            
+            <!-- Card 5 -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=600&q=80" alt="Desert landscape with sand dunes at sunset">
+                <div class="card-content">
+                    <h3>Desert Dunes</h3>
+                    <p>Witness the ever-changing patterns of desert sands and stunning sunsets that paint the sky in fiery hues.</p>
+                </div>
+            </div>
+            
+            <!-- Card 6 -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1476820865390-c52aeebb9891?auto=format&fit=crop&w=600&q=80" alt="Colorful coral reef with tropical fish">
+                <div class="card-content">
+                    <h3>Coral Reefs</h3>
+                    <p>Dive into vibrant underwater worlds teeming with colorful marine life and intricate coral formations.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <p>Responsive Nature Explorer &copy; 2023 | Created with HTML & CSS</p>
+        <p>This website adapts to your device and preferences</p>
+        <div class="layout-info">
+            <span id="layout-indicator">Mobile Layout</span>
+        </div>
+    </footer>
+
+    <script>
+        // Update layout indicator based on screen size
+        function updateLayoutIndicator() {
+            const indicator = document.getElementById('layout-indicator');
+            if (window.innerWidth >= 992) {
+                indicator.textContent = 'Large Screen Layout (3 columns)';
+            } else if (window.innerWidth >= 772) {
+                indicator.textContent = 'Tablet Layout (2 columns)';
+            } else {
+                indicator.textContent = 'Mobile Layout (1 column)';
+            }
+        }
+        
+        // Initial call
+        updateLayoutIndicator();
+        
+        // Update on resize
+        window.addEventListener('resize', updateLayoutIndicator);
+        
+        // Check for dark mode preference
+        function checkDarkMode() {
+            const darkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const darkModeIndicator = document.querySelector('.preference-info');
+            if (darkMode) {
+                darkModeIndicator.innerHTML = '<i class="fas fa-moon"></i> Dark mode is enabled based on your system preferences';
+            } else {
+                darkModeIndicator.innerHTML = '<i class="fas fa-sun"></i> Light mode is enabled based on your system preferences';
+            }
+        }
+        
+        // Initial dark mode check
+        checkDarkMode();
+        
+        // Listen for changes
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', checkDarkMode);
+    </script>
+</body>
+</html>
