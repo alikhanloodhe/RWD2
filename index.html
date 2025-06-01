@@ -202,6 +202,20 @@
             outline: 3px solid var(--secondary);
             outline-offset: 2px;
         }
+        /* Mobile (default) */
+.grid { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+
+/* Tablet (772px+) */
+@media (min-width: 772px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
+  figure:last-child { grid-column: span 2; }
+}
+
+/* Desktop (992px+) */
+@media (min-width: 992px) {
+  figure:nth-child(3n) { grid-column: span 2; }
+  figure { border-radius: 0 !important; }
+}
     </style>
 </head>
 <body>
